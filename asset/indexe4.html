@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../style.css">
+    <title>S'nake</title>
+</head>
+<body class="indexe4">
+    <audio id="gameover-audio" src="./son/cartoon-fail-trumpet-278822.mp3"></audio>
+    <section class="gif">
+        <img id="gif" src="../asset/icone/V69md7ukEt-unscreen.gif" alt="">
+    </section>
+    <div id="card">
+        <div class="icone">
+            <div class="i">
+                <img id="pomme" src="./icone/pomme.png" alt="">
+            </div>
+            <h3>:</h3>
+            <h3 class="scores">0</h3>
+        </div>
+        <div class="icone">
+            <div class="i">
+                <img id="trophee" src="./icone/trophee.png" alt="">
+            </div>
+            <h3>:</h3>
+            <h3 class="cores">0</h3>
+        </div>
+    </div>
+
+    <div class="in">
+        <a href="./indexe1.html">
+            <button class="cl">
+                <span class="btn">Rejouer</span>
+            </button>
+        </a>
+        <a href="./indexe3.html">
+            <button class="cl1">
+                <span class="btn1">Quitter</span>
+            </button>
+        </a>
+    </div>
+    <script>
+        // Injecter les valeurs dans le DOM
+        const currentScore = localStorage.getItem("lastScore") || 0;
+        const bestScore = localStorage.getItem("bestScore") || 0;
+        document.querySelectorAll(".scores").forEach(scoreEl => scoreEl.textContent = currentScore);
+        document.querySelectorAll(".cores").forEach(coreEl => coreEl.textContent = bestScore);
+
+        // Jouer le son de game over
+        window.addEventListener("DOMContentLoaded", () => {
+            const audio = document.getElementById("gameover-audio");
+            if (audio) {
+                audio.play().catch(() => {
+                    // Certains navigateurs bloquent la lecture auto, tu peux gérer ici si besoin
+                });
+            }
+        });
+    </script>
+</body>
+</html>
